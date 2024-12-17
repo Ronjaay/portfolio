@@ -1,10 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Effect - Biography</title>
+  
+  <!-- Google Fonts for "Great Vibes" -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Berkshire+Swash&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+<!-- Local CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <p>hallo</p>
+  <!--circles-->
+  <div class="floating-circles"></div>
+
+  <!--navigation bar top-->
+  <div class="nav-bar">
+    <div class="logo-name"><p>RONJA</p></div>
+    <div class="menu-icon" id="menu-toggle">☰</div>
+  </div>
+
+  <!--navigation bar below-->
+  <div class="nav-container">
+
+  <!--span Animation letters-->
+    <div class="nav-item word-container">
+
+      <span class="word1">
+      </span>
+      <span class="letter" data-alt="true">H</span>
+        <span class="letter2">o</span>
+        <span class="letter" data-alt="true">m</span>
+        <span class="letter2">e</span>
+      </span>
+    </div>
+    <!--other Nav Items-->
+    <div class="nav-item">Work</div>
+    <div class="nav-item">About</div>
+    <div class="nav-item">FAQ</div>
+
+  </div>
+
+  <!--main Image-->
+  <div class="image-container">
+  <img class="main-picture" src="Pictures/Cropped version main picture.jpg">
+  </div>
+
+  <!--Welcometext+button-->
+  <div class="text-wrapper">
+    <h1>Hi I'm <br><span class="Ronja">RONJA</span><br></h1>
+    <p>I am currently studying Interfacedesign at FH Potsdam. <br> Join me on my journey! </p>
+    <div>
+      <button class="Checkout-button">Get in touch!</button>
+    </div>
+  </div>
+
+  <!-- weiterer Inhalt -->
+<div class="more-content">
+  <h2>Projects</h2>
+  <p>Here are some of my projects bla bla bla bla bla bla bla </p>
+  <p>More text more text more text </p>
+  <div image-container2>
+  <img class="image-child" src="Pictures/" alt="example photo" />
+</div>
+</div>
+
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
 </html>

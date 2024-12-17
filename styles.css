@@ -1,0 +1,229 @@
+@font-face {
+  font-family: 'funFont';
+  src: url(fonts/Funfont-Regular.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+  background-color: #d4d4d4; 
+  color: #000;
+  height: 3711px;
+  overflow: auto;
+  overflow-x: hidden ;
+}
+
+/* Navigation bar */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(63, 109, 133); 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 1rem; 
+  z-index: 1000;
+}
+
+.logo-name {
+  color:rgb(255, 255, 255);
+  font-family: funFont;
+  font-size: 18px;
+  flex-grow: 1; 
+  text-align: center; 
+  padding-left: 100px;
+}
+
+.menu-icon {
+  font-size: 1.5rem; 
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  user-select: none;
+  padding: 40px;
+  margin-top: -5px;
+}
+
+.nav-container {
+  position: fixed;
+  top: -20%; 
+  left: 0;
+  width: 100%;
+  height: 20%; /* 1/5 of the screen height */
+  background-color: rgb(63, 109, 133); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 2rem; 
+  transition: top 0.3s ease-in-out;
+  z-index: 999; 
+}
+
+.nav-container.open {
+  top: 0; 
+}
+
+.nav-item {
+  font-size: 1rem; 
+  color: white; 
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'ClearfaceITC', serif;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: rgb(13, 231, 195); 
+}
+
+/* Word container and letters */
+.word-container .letter {
+  display: inline-block;
+  position: relative;
+  font-family: 'ClearfaceITC', serif;
+  font-size: 1rem;
+  transition: font-family 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+}
+
+.letter2 {
+  display: inline-block;
+  position: relative;
+  font-family: 'ClearfaceITC', serif;
+  font-size: 1rem;
+  transition: font-family 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+}
+
+.word-container .letter[data-alt="true"].hovered {
+  font-family: 'funFont', cursive;
+  font-size: 1rem;
+  transform: translateY(-10px);
+}
+
+.word-container .letter.hovered {
+  transform: translateY(-10px);
+  animation: bounce 0.5s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.word-container .letter {
+  transition: font-family 0.8s ease-in-out, font-size 0.8s ease-in-out, transform 0.5s ease-out;
+}
+
+.main-picture {
+  width: 2000px;
+  height: 2000px;
+  top: -100px;
+}
+
+.image-container {
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden;
+    position: relative; 
+  }
+  
+  .image-container img {
+    position: absolute; 
+    top: -100px; /* Bild 100px nach oben */
+    left: -50px; 
+    width: auto; 
+    height: 120%; 
+  }
+
+.floating-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(81, 198, 163, 0.3);
+  animation: float 10s infinite;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-50px) translateX(50px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.text-wrapper {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 1; 
+  text-align: center;
+  color: #fff; 
+}
+
+.Ronja {
+  font-family: funFont;
+  color: rgb(134, 243, 255);
+}
+
+.Checkout-button {
+  margin-top: 35px;
+  color: #fff;
+  background-color:  rgba(89, 211, 175, 0.3);
+  border-radius: 20px;
+  border: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.Checkout-button:hover {
+background-color: rgb(80, 210, 197);
+}
+
+.more-content {
+  padding: 2rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+
+.image-container2 {
+  display: flex;
+  width: 100vw; 
+  height: 100vh; 
+  overflow: hidden; 
+  position: relative; 
+}
+
+.image-child {
+  height: 200px;
+  align-items:flex-start;
+}
+
+
