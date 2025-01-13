@@ -1,15 +1,25 @@
 @font-face {
   font-family: 'funFont';
   src: url(fonts/Funfont-Regular.ttf);
+  font-family: 'Hermione';
+  src: url(fonts/Hermione.ttf);
+
+}
+
+.homage-condensed {
+  font-family: "homage-condensed", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter';
-  background-color: #d4d4d4; 
+  font-family: 'Karla';
+  background-color:  rgb(227, 233, 237); 
   color: #000;
-  height: 3711px;
+  height: auto;
   overflow: auto;
   overflow-x: hidden ;
 }
@@ -31,7 +41,7 @@ body {
 
 .logo-name {
   color:rgb(255, 255, 255);
-  font-family: funFont;
+  font-family: 'Hermione';
   font-size: 18px;
   flex-grow: 1; 
   text-align: center; 
@@ -49,6 +59,7 @@ body {
 
 .nav-container {
   position: fixed;
+  gap: 20px; 
   top: -20%; 
   left: 0;
   width: 100%;
@@ -57,7 +68,6 @@ body {
   display: flex;
   justify-content: center; 
   align-items: center; 
-  gap: 2rem; 
   transition: top 0.3s ease-in-out;
   z-index: 999; 
 }
@@ -73,25 +83,47 @@ body {
   cursor: pointer;
   font-family: 'ClearfaceITC', serif;
   transition: color 0.3s ease;
+  text-wrap: nowrap;
 }
 
 .nav-item:hover {
   color: rgb(13, 231, 195); 
 }
 
+.nav-container a {
+  text-decoration: none; /* Keine Unterstreichung */
+  color: inherit; /* Erbt die Textfarbe, die auf der Seite definiert ist */
+  outline: none; /* Entfernt den Standardrahmen beim Fokussieren */
+}
+
+/* Entfernen der blauen Hervorhebung beim Fokussieren und Klicken */
+.nav-container a:focus, 
+.nav-container a:active, 
+.nav-container a:hover, 
+.nav-container a:visited {
+  outline: none; /* Entfernt die blaue Umrandung */
+  background: none; /* Entfernt den Hintergrund */
+  text-decoration: none; /* Entfernt Unterstreichung */
+}
+
 /* Word container and letters */
 .word-container .letter {
   display: inline-block;
   position: relative;
-  font-family: 'ClearfaceITC', serif;
+  font-family: 'Karla', serif;
   font-size: 1rem;
   transition: font-family 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
+  gap: 20px;
+}
+
+.nav-item .word-container {
+  gap: 20px;
 }
 
 .letter2 {
   display: inline-block;
   position: relative;
-  font-family: 'ClearfaceITC', serif;
+  font-family: 'Karla', serif;
   font-size: 1rem;
   transition: font-family 0.3s ease, font-size 0.3s ease, transform 0.3s ease;
 }
@@ -105,6 +137,7 @@ body {
 .word-container .letter.hovered {
   transform: translateY(-10px);
   animation: bounce 0.5s ease-out;
+  gap: 2rem;
 }
 
 @keyframes bounce {
@@ -124,9 +157,14 @@ body {
 }
 
 .main-picture {
-  width: 2000px;
-  height: 2000px;
+  width: 100%;
+  height: 100%;
+  background-image: url('Pictures/pexels-blaque-x-264516-932638.jpg');
+  background-size: 200%;
+  background-position: top right;
+  background-repeat: no-repeat;
   top: -100px;
+  filter: hue-rotate(10deg)
 }
 
 .image-container {
@@ -136,13 +174,57 @@ body {
     position: relative; 
   }
   
+/* Bildcontainer */
+
+  .image-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%; /* Die unteren 20% */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    z-index: 2; /* Sicherstellen, dass es über dem Bild liegt */
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Bild unter der Transparenz */
+}
+
   .image-container img {
     position: absolute; 
+    zoom: 20%;
     top: -100px; /* Bild 100px nach oben */
-    left: -50px; 
+    left: 0px; 
     width: auto; 
     height: 120%; 
   }
+
+  .image-container {
+    width: 100vw; 
+    height: 100vh; 
+    overflow: hidden;
+    position: relative; 
+}
+
+.image-container .main-picture {
+    width: 100%; /* Vollständig über die Breite */
+    height: 100%; /* Vollständig über die Höhe */
+    object-fit: cover; /* Verhindert Verzerrung des Bildes */
+    object-position: center; /* Bildmittelausrichtung */
+    transform: scale(2); /* Zoom-Level hier anpassen, z.B. 2x */
+    /* Optional: spezifische Bildposition durch Translation */
+    transform-origin: center; /* Ursprung des Zooms */
+}
+
+
 
 .floating-circles {
   position: absolute;
@@ -157,9 +239,16 @@ body {
 .circle {
   position: absolute;
   border-radius: 50%;
-  background-color: rgba(81, 198, 163, 0.3);
+  background: radial-gradient(circle, rgba(9, 117, 127, 0.7) 70%, rgba(69, 109, 113, 0.8) 100%); /* Gedeckte Farben */
+  box-shadow: 0 0 20px rgba(46, 96, 92, 0.6), 0 0 40px rgba(0, 138, 153, 0.4); /* Leichte Leuchtwirkung */
   animation: float 10s infinite;
-  z-index: 1;
+  z-index:1;
+}
+
+.circle:hover {
+  box-shadow: 12px 12px 24px rgba(135, 242, 233, 0.7), -12px -12px 24px rgba(135, 242, 233, 0.7);
+  scale: 1.5;
+  transition: all 2s ease;  
 }
 
 /* Animations */
@@ -182,12 +271,22 @@ body {
   transform: translate(-50%, -50%); 
   z-index: 1; 
   text-align: center;
-  color: #fff; 
 }
 
 .Ronja {
-  font-family: funFont;
-  color: rgb(134, 243, 255);
+  font-family: 'Hermione', serif;
+  padding-right: 40px;
+  font-size: 150px;
+  color:rgb(194, 205, 202);
+  z-index: 1;
+  text-wrap: nowrap;
+
+  font-size: clamp(20px, 12vw, 150px);
+}
+
+.Ronja:hover {
+  color: rgb(232, 245, 242);
+  scale: 1.5;
 }
 
 .Checkout-button {
@@ -212,7 +311,6 @@ background-color: rgb(80, 210, 197);
   margin-top: 50px;
 }
 
-
 .image-container2 {
   display: flex;
   width: 100vw; 
@@ -226,4 +324,319 @@ background-color: rgb(80, 210, 197);
   align-items:flex-start;
 }
 
+
+
+/*2.Abschnitt: Gallery*/ 
+
+.blue-banner {
+  background-color: rgb(63, 109, 133);
+  color: white;
+  padding: 100px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 80px;
+  padding-right: 800px;
+}
+
+.blue-banner p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 18px;
+  text-align: left;
+}
+
+.blue-banner img {
+  max-width: 350px;
+  padding-right: 200px;
+  padding-left: 50px;
+  padding-top: 20px;
+  border-radius: 8px;
+  margin-left: auto; 
+  height: auto;
+  border-radius: 8px;
+  margin-left: auto; /* Move image to the right */
+  position: absolute; /* Position the image absolutely */
+  bottom: -590px; /* Adjust the overlap amount */
+  right: 40px;/* Move image to the right */
+}
+
+.welcometomyportfolio {
+  font-family: 'Hermione';
+  font-size: 40px;
+  line-height: 1;
+}
+
+.work-section {
+  padding: 140px 70px;
+}
+
+.work-section h2 {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  font-family: 'Hermione';
+  font-size: 90px;
+  color: #02303a;
+  text-align: center;
+}
+
+.filters {
+  margin: 20px 0;
+  font-size: 18px;
+  color: #8B0000;
+  text-align: left;
+}
+
+
+/*project-galerie*/ 
+
+ /* Für die Galerie */
+.gallery {
+  display: flex;
+  flex-wrap: wrap; /* Ermöglicht das Umfließen der Bilder */
+  justify-content: space-between;
+  gap: 20px; /* Abstand zwischen den Bildern */
+  padding: 20px 0;
+}
+
+.gallery-item {
+  flex: 1 1 40%; /* Jedes Element nimmt nun 40% des verfügbaren Platzes ein */
+  background-color: #d9d9d900;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 20px; /* Abstand nach unten */
+}
+
+.gallery-item img {
+  max-width: 60%;  /* Bilder nehmen maximal 80% der Breite des Containers ein */
+  height: auto;    /* Höhe wird automatisch angepasst */
+  display: block;
+  margin: 0 auto;  /* Zentriert das Bild im Container */
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1); 
+  transition: 0.3s ease-in-out;
+}
+.gallery-item p {
+  margin: 20px 0 0; /* Abstand zum Text */
+  font-size: 16px;
+  color: #333;
+}
+
+/* Für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .gallery {
+    flex-direction: column; /* Ändert das Layout zu einer Spalte */
+    align-items: center; /* Zentriert die Elemente */
+  }
+
+  .gallery-item {
+    flex: 1 1 100%; /* Jedes Element nimmt nun den gesamten Platz ein */
+    margin-bottom: 20px;
+  }
+}
+
+
+/*3.Abschnitt: Gallery-bubbles*/
+
+/* Container für den Projekttitel und die neuen Blasen */
+.gallery-container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Wichtig für das Positionieren der Blasen */
+}
+
+/* Projekttitel */
+.project-title {
+  font-size: 2rem;
+  color: white;
+  margin-right: 40px;
+  position: relative;
+}
+
+/* Gallery-shape für die Blasen */
+.gallery-shape {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 250px;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+/* Eine einzelne Gallery-Bubble */
+.gallery-bubble {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 138, 153, 0.7);
+  border-radius: 50%;
+  animation: moveBubble 5s ease-in-out infinite;
+  filter: blur(2px);
+  box-shadow: 0 0 15px rgba(0, 138, 153, 0.6);
+  transform: scale(1.1);
+}
+
+.gallery-bubble:nth-child(1) {
+  animation-delay: 0s;
+  width: 70px;
+  height: 70px;
+  left: 30px;
+  top: 0;
+  animation: moveBubble 6s ease-in-out infinite;
+}
+
+.gallery-bubble:nth-child(2) {
+  animation-delay: 0s;
+  width: 70px;
+  height: 70px;
+  left: 30px;
+  top: 30px;
+}
+
+
+/* Die oberste Bubble, die das Projektbild enthält */
+.image-bubble {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  filter: blur(4px); /* Optional: Blurr-Effekt für die Bubble */
+  box-shadow: 0 0 15px rgba(0, 138, 153, 0.6);
+  transform: scale(1.1);
+}
+
+.bubble-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Bild wird skaliert, um den Container auszufüllen */
+  border-radius: 50%;
+  filter: blur(1px); /* Optional: Bild leicht unscharf machen */
+}
+
+/* Bewegung der Blasen */
+@keyframes moveBubble {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(30deg);
+  }
+}
+
+
+
+
+
+
+
+/*4.Abschnitt: Title Galerie*/
+
+/* Container für die Liste der Projekttitel */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Einzelner Projekteintrag */
+.project-item {
+  position: relative;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  z-index: 1; /* Sicherstellen, dass dieser Container an oberster Stelle bleibt */
+}
+
+/* Projekttitel */
+.project-title {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 2; /* Der Titel bleibt oben */
+}
+
+/* Container für die Bilder */
+.project-images {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: -200px; /* Anfangs außerhalb des Containers */
+  right: -200px; /* Anfangs außerhalb des Containers */
+  opacity: 0; /* Bilder sind standardmäßig unsichtbar */
+  transition: opacity 0.3s ease, left 0.3s ease, right 0.3s ease; /* Übergänge für Opazität und Position */
+  z-index: 0; /* Die Bilder müssen hinter dem Titel bleiben */
+}
+
+/* Projektbilder */
+.project-image {
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease;
+  opacity: 0; /* Bilder sind standardmäßig unsichtbar */
+  z-index: 0; /* Bilder hinter dem Titel */
+}
+
+.project-item:hover .project-images {
+  left: 0; /* Bilder erscheinen auf der linken und rechten Seite */
+  right: 0;
+  opacity: 1; /* Bilder werden sichtbar */
+}
+
+.project-item:hover .project-image {
+  opacity: 1; /* Bilder werden sichtbar */
+  transform: translateY(-10px); /* Leichtes Anheben der Bilder */
+}
+
+/* Wenn der Projekttitel nicht aktiv ist, wird er etwas ausgeblendet */
+.project-item:not(:hover) .project-title {
+  opacity: 0.3;
+}
+
+
+/* Footer Styles */
+.footer {
+  background-color: rgb(63, 109, 133);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .contact-info {
+  margin-top: 20px;
+}
+
+.footer h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: rgb(13, 231, 195);
+}
 

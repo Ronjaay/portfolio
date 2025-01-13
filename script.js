@@ -1,9 +1,7 @@
-// Select all letters in the word
-const letters = document.querySelectorAll('.word-container .letter');
-const wordContainer = document.querySelector('.word-container');
+// Funktion: Hover-Effekt für jedes einzelne Wort
+function onHoverIn(event) {
+  const letters = event.currentTarget.querySelectorAll('.letter'); // Nur die Buchstaben des gehovten Wortes
 
-// Function: Add hover effect
-function onHoverIn() {
   letters.forEach((letter, index) => {
     if (letter.dataset.alt === "true") {
       letter.classList.add('hovered');
@@ -16,7 +14,9 @@ function onHoverIn() {
   });
 }
 
-function onHoverOut() {
+function onHoverOut(event) {
+  const letters = event.currentTarget.querySelectorAll('.letter'); // Nur die Buchstaben des gehovten Wortes
+
   letters.forEach((letter) => {
     letter.classList.remove('hovered');
     gsap.to(letter, {
@@ -25,8 +25,14 @@ function onHoverOut() {
   });
 }
 
-wordContainer.addEventListener("mouseenter", onHoverIn);
-wordContainer.addEventListener("mouseleave", onHoverOut);
+// Alle .word-container-Elemente abfragen
+const wordContainers = document.querySelectorAll('.word-container');
+
+wordContainers.forEach(wordContainer => {
+  wordContainer.addEventListener("mouseenter", onHoverIn);
+  wordContainer.addEventListener("mouseleave", onHoverOut);
+});
+
 
 const menuToggle = document.getElementById('menu-toggle');
 const navContainer = document.querySelector('.nav-container');
@@ -61,3 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+// Erstelle den benutzerdefinierten Cursor
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+// Bewege den Cursor entsprechend der Mausposition
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+});

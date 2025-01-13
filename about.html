@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Effect - Biography</title>
+  
+  <!-- Google Fonts for "Great Vibes" -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Berkshire+Swash&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/rod1uhx.css"> <!-- Ronja -->
+  <link rel="stylesheet" href="https://use.typekit.net/rod1uhx.css"> <!-- Wolf -->
+  
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://use.typekit.net/rod1uhx.css">
+</head>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Karla', sans-serif;
+    background-color: #ffffff; /* Weißer Hintergrund */
+    color: #000000; /* Schwarzer Text */
+    line-height: 1.6;
+    height: auto;
+}
+
+h1 {
+    font-family: Hermione;
+    font-size: 100px;
+   margin-bottom: 20px;
+}
+
+.about-content {
+  display: flex;
+  padding-top: 100px;
+  align-items: flex-start;
+  gap: 80px; /* Abstand zwischen Bild und Text */
+  padding-left: 20px; /* Abstand von der linken Seite für das gesamte Layout */
+}
+
+.about-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 40%; /* Maximale Breite des Bildes */
+}
+
+.about-photo img {
+  width: 100%; /* Bild nimmt die volle Breite des Containers ein */
+  height: auto; /* Verhindert Verzerrungen des Bildes */
+  object-fit: contain; /* Das Bild bleibt vollständig sichtbar und wird nicht abgeschnitten */
+}
+
+.about-text {
+    max-width: 60%; /* Maximale Breite des Textes */
+    padding-right: 200px;
+  flex: 1;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(86, 148, 181);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.contact-button:hover {
+  background-color: rgb(106, 181, 221);
+}
+
+/* Entfernen der blauen Markierung und Hintergrundfarbe bei Links */
+.nav-container a {
+    text-decoration: none; /* Keine Unterstreichung */
+    color: inherit; /* Erbt die Textfarbe, die auf der Seite definiert ist */
+    outline: none; /* Entfernt den Standardrahmen beim Fokussieren */
+}
+
+/* Entfernen der blauen Hervorhebung beim Fokussieren und Klicken */
+.nav-container a:focus, 
+.nav-container a:active, 
+.nav-container a:hover, 
+.nav-container a:visited {
+    outline: none; /* Entfernt die blaue Umrandung */
+    background: none; /* Entfernt den Hintergrund */
+    text-decoration: none; /* Entfernt Unterstreichung */
+}
+
+/* Stil für das Nav-Item */
+.nav-item {
+    display: inline-block;
+    margin: 0 10px;
+}
+</style>
+
+<body>
+  <!--navigation bar top-->
+  <div class="nav-bar">
+    <div class="logo-name"><p>Ronja Wolf</p></div>
+    <div class="menu-icon" id="menu-toggle">☰</div>
+  </div>
+
+  <!--navigation bar below-->
+  <div class="nav-container">
+    <!--span Animation letters-->
+    <div class="nav-item word-container">
+      <a href="index.html" class="word1"> <!-- Hier wird auf die Homepage verlinkt -->
+        <span class="letter" data-alt="true">H</span>
+        <span class="letter2">o</span>
+        <span class="letter" data-alt="true">m</span>
+        <span class="letter2">e</span>
+      </a>
+    </div>
+
+    <div class="nav-item word-container">
+      <span class="word1">
+        <a href="index.html#projects-section">
+        <span class="letter" data-alt="true">W</span>
+        <span class="letter2">o</span>
+        <span class="letter" data-alt="true">r</span>
+        <span class="letter2">k</span>
+    </a>
+      </span>
+    </div>
+
+    <div class="nav-item word-container">
+      <span class="word1">
+        <span class="letter" data-alt="true">A</span>
+        <span class="letter2">b</span>
+        <span class="letter" data-alt="true">o</span>
+        <span class="letter2">u</span>
+        <span class="letter" data-alt="true">t</span>
+      </span>
+    </div>
+    <div class="nav-item word-container">
+      <span class="word1">
+        <a href="index.html#footer">
+        <span class="letter" data-alt="true">C</span>
+        <span class="letter2">o</span>
+        <span class="letter" data-alt="true">n</span>
+        <span class="letter2">t</span>
+        <span class="letter" data-alt="true">a</span>
+        <span class="letter2">c</span>
+        <span class="letter" data-alt="true">t</span>
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <div class="about-content">
+    <div class="about-photo">
+      <img src="Pictures/IMG_2006.jpg" alt="Your Name">
+    </div>
+    <div class="about-text">
+      <h1>About</h1>
+      <p>
+        Aktuell studiere ich Interface Design an der FH Potsdam. Ich interessiere mich vor allem für UX/UI Design, Webentwicklung und kreative Projekte, die Technologie und Design miteinander verbinden. Diese Website dient als Portfolio für meine Projekte. Gleichzeitig halte ich auch meine Entwicklung und meinen Prozess im Laufe meines Studiums fest. Du hast Fragen?-dann schreib mir gerne! 
+      </p>
+      <a href="index.html#footer">
+      <button class="contact-button">Schreib mir eine E-Mail!</button>
+     </a>
+    </div>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

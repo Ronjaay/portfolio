@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 1</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  
+  <style>
+    .karla {
+      font-family: "Karla", serif;
+      font-optical-sizing: auto;
+      font-weight: weight;
+      font-style: normal;
+    }
+
+    /* Vollbreites Projektfoto */
+    .project-header {
+      width: 100%;
+      height: 60vh; /* 50% der Höhe des Viewports */
+      background-image: url(Pictures/dreamscape/dreamscapefoto2.png); /* Beispielbild */
+      background-size: cover;
+      background-position: center;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Karla', sans-serif;
+      background-color: #ffffff; /* Weißer Hintergrund */
+      color: #000000; /* Schwarzer Text */
+      line-height: 1.6;
+    }
+
+    /* Zurück Button - oben links */
+    .back-button {
+    font-family: 'Karla';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #000000;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+    }
+
+    .back-button:hover {
+      color: #555555;
+    }
+
+    .project-container {
+      padding: 50px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 30px;
+      font-size: 0.9em;
+      color: #555555; /* Grauer Text für Details */
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 40px; /* Abstand zwischen den Spalten */
+      align-items: flex-start;
+    }
+
+    .project-heading {
+      flex: 1;
+      padding-top: 42px;
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .project-heading span {
+      display: block;
+    }
+
+    .project-description {
+      padding-top: 40px;
+      flex: 2;
+      font-size: 20px;
+    }
+
+    .project-description p {
+      margin-bottom: 20px;
+    }
+
+    .project-links a {
+      color: #000000;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  
+    /* Galerie-Stil */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Größere Bilder, die den Bildschirm ausfüllen */
+      gap: 20px;
+      padding-top: 100px; /* Reduziert den oberen Abstand */
+    }
+
+    .gallery img {
+      width: 100%; /* Damit das Bild die gesamte Breite des Containers einnimmt */
+      height: auto; /* Das Bild skaliert automatisch mit der Breite */
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      padding: 5px; /* Weniger Padding für bessere Bildgröße */
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal-Style */
+    .modal {
+      display: none; /* Modal standardmäßig ausblenden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center; /* Zentriert horizontal */
+      align-items: center; /* Zentriert vertikal */
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      display: flex;
+      justify-content: center; /* Zentriert das Bild */
+      align-items: center; /* Zentriert das Bild vertikal */
+      max-width: 80%; /* Begrenze die Breite des Modal-Inhalts */
+      max-height: 80%; /* Begrenze die Höhe des Modal-Inhalts */
+    }
+
+    .modal-content img {
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      transition: 0.6s ease;
+      user-select: none;
+    }
+
+    .next {
+      right: 10px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev {
+      left: 10px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 20px; /* Weniger Abstand für kleinere Bildschirme */
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Etwas kleinere Bilder für mittlere Bildschirmgrößen */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr; /* 1 Spalte für sehr kleine Bildschirme */
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Zurück Button -->
+  <!-- Button auf dreamscape.html -->
+<button class="back-button" onclick="window.location.href='index.html#projects-section';">&#8592;</button>
+
+  
+
+
+  <!-- Projektfoto -->
+  <div class="project-header"></div>
+  <div class="project-container">
+    <div class="project-info">
+      <div>Typ: Bewerbungsprojekt</div>
+      <div>Zeitraum: April 2024</div>
+      <div>Mediums: Figma</div>
+    </div>
+
+    <div class="project-content content-wrapper">
+      <div class="project-heading">
+        <span>Make.</span>
+        <span>Your.</span>
+        <span>Dreams.</span>
+        <span>Come.</span>
+        <span>Alive.</span>
+      </div>
+
+      <div class="project-description">
+        <p>Dreamscape ist eine fiktive App, die im Rahmen meines Bewerbungsprojekts für die Fachhochschule Potsdam entwickelt wurde. Sie ermöglicht es Nutzern, ihre eigenen Träume zu generieren und visuell zu erleben. Durch die Kombination von kreativer Technologie und psychologischen Konzepten bietet die App eine einzigartige Möglichkeit, in die Welt der Träume einzutauchen. Dreamscape nutzt Algorithmen, um aus vorgegebenen Stichworten, Emotionen oder Szenarien virtuelle Traumwelten zu erschaffen, die der Nutzer dann "erleben" kann. Es ist eine Reise in die Fantasie, die es jedem ermöglicht, seine eigenen, einzigartigen Träume zu gestalten – ganz gleich, ob sie surreal, beruhigend oder abenteuerlich sind.</p>
+      </div>
+    </div>
+
+    <!-- Picture Gallery -->
+    <div class="gallery">
+      <img src="Pictures/dreamscape.jpg" alt="Dreamscape Image 1">
+      <img src="Pictures/dreamscape/dreamscapefoto1.png" alt="Dreamscape Image 2">
+      <img src="Pictures/dreamscape/dreamscapefoto2.png" alt="Dreamscape Image 3">
+      <img src="Pictures/dreamscape/dreamscapefot3.png" alt="Dreamscape Image 4">
+      <!-- Add more images as needed -->
+    </div>
+    
+    <!-- Modal for larger view -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-content">
+        <span class="prev">&#10094;</span>
+        <img id="modal-img" src="">
+        <span class="next">&#10095;</span>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("modal-img");
+    var images = document.querySelectorAll(".gallery img");
+    var currentIndex = 0;
+  
+    images.forEach(function (image, index) {
+      image.addEventListener("click", function () {
+        modal.style.display = "flex"; // Sicherstellen, dass das Modal als flex angezeigt wird
+        modalImg.src = this.src;
+        currentIndex = index;
+      });
+    });
+  
+    var close = document.querySelector(".close");
+    close.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    var next = document.querySelector(".next");
+    next.onclick = function () {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    };
+  
+    var prev = document.querySelector(".prev");
+    prev.onclick = function () {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    };
+  
+    // Close the modal when clicking anywhere outside the image
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
