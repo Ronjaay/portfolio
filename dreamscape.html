@@ -214,6 +214,53 @@
         grid-template-columns: 1fr; /* 1 Spalte für sehr kleine Bildschirme */
       }
     }
+
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 20px; /* Weniger Abstand für kleinere Bildschirme */
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Etwas kleinere Bilder für mittlere Bildschirmgrößen */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: 1fr; /* 1 Spalte für sehr kleine Bildschirme */
+      }
+    }
+    
+
+
+
+
+    /* Breakpoint Mobile */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+        flex-direction: column;
+        gap: 20px; /* Weniger Abstand für kleinere Bildschirme */
+  }
+  .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Etwas kleinere Bilder für mittlere Bildschirmgrößen */
+      }
+
+  .project-info {
+      font-size: 0.7em;
+      
+    }
+
+}
+
+/* Breakpoint Desktop */
+@media screen and (min-width: 768px) {
+  .gallery {
+        grid-template-columns: 1fr; /* 1 Spalte für sehr kleine Bildschirme */
+      }
+}
+
   </style>
 
 </head>

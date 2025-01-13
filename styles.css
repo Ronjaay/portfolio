@@ -24,6 +24,11 @@ body {
   overflow-x: hidden ;
 }
 
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 /* Navigation bar */
 .nav-bar {
   position: fixed;
@@ -331,13 +336,12 @@ background-color: rgb(80, 210, 197);
 .blue-banner {
   background-color: rgb(63, 109, 133);
   color: white;
-  padding: 100px;
+  padding: 10vh 4vw;
   text-align: left;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 80px;
-  padding-right: 800px;
+  width: 100%;
+  /* align-items: start; */
+  /* justify-content: start; */
 }
 
 .blue-banner p {
@@ -362,9 +366,11 @@ background-color: rgb(80, 210, 197);
   right: 40px;/* Move image to the right */
 }
 
+
 .welcometomyportfolio {
   font-family: 'Hermione';
   font-size: 40px;
+  margin-bottom: 30px;
   line-height: 1;
 }
 
@@ -389,6 +395,8 @@ background-color: rgb(80, 210, 197);
   text-align: left;
 }
 
+/* ------------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------ */
 
 /*project-galerie*/ 
 
@@ -640,3 +648,20 @@ background-color: rgb(80, 210, 197);
   color: rgb(13, 231, 195);
 }
 
+/* Breakpoint Mobile */
+@media screen and (max-width: 768px) {
+  .welcome-txt { 
+    /* width: 100%; */
+    color: yellow;
+    margin: 50px;
+  }
+}
+
+
+/* Breakpoint Desktop */
+@media screen and (min-width: 768px) {
+  .welcome-txt { 
+    width: 60%;
+    margin: 30px;
+  }
+}
