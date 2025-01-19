@@ -1,19 +1,5 @@
 // Funktion: Hover-Effekt für jedes einzelne Wort
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function onHoverIn(event) {
   const letters = event.currentTarget.querySelectorAll('.letter'); 
   letters.forEach((letter, index) => {
@@ -27,11 +13,6 @@ function onHoverIn(event) {
     }
   });
 }
-
-
-
-
-
 
 function onHoverOut(event) {
   const letters = event.currentTarget.querySelectorAll('.letter'); 
