@@ -27,27 +27,25 @@ body {
     color: #000000; /* Schwarzer Text */
     line-height: 1.6;
     height: auto;
+    padding: 0 20px; /* Allgemeiner Abstand zum Bildschirmrand */
 }
 
 h1 {
     font-family: Hermione;
     font-size: 100px;
-   margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .about-content {
   display: flex;
+  flex-direction: row;
   padding-top: 100px;
   align-items: flex-start;
-  gap: 80px; /* Abstand zwischen Bild und Text */
-  padding-left: 20px; /* Abstand von der linken Seite für das gesamte Layout */
+  gap: 50px; /* Größerer Abstand zwischen Bild und Text */
 }
 
 .about-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 80%; /* Maximale Breite des Bildes */
+  max-width: 30%; /* Kleinere maximale Breite des Bildes */
 }
 
 .about-photo img {
@@ -57,8 +55,7 @@ h1 {
 }
 
 .about-text {
-    max-width: 80%; /* Maximale Breite des Textes */
-    padding-right: 200px;
+  max-width: 65%; /* Textcontainer etwas breiter gemacht */
   flex: 1;
 }
 
@@ -78,59 +75,51 @@ h1 {
   background-color: rgb(106, 181, 221);
 }
 
-/* Entfernen der blauen Markierung und Hintergrundfarbe bei Links */
 .nav-container a {
-    text-decoration: none; /* Keine Unterstreichung */
-    color: inherit; /* Erbt die Textfarbe, die auf der Seite definiert ist */
-    outline: none; /* Entfernt den Standardrahmen beim Fokussieren */
+    text-decoration: none; 
+    color: inherit; 
+    outline: none; 
 }
 
-/* Entfernen der blauen Hervorhebung beim Fokussieren und Klicken */
 .nav-container a:focus, 
 .nav-container a:active, 
 .nav-container a:hover, 
 .nav-container a:visited {
-    outline: none; /* Entfernt die blaue Umrandung */
-    background: none; /* Entfernt den Hintergrund */
-    text-decoration: none; /* Entfernt Unterstreichung */
+    outline: none;
+    background: none;
+    text-decoration: none; 
 }
 
-/* Stil für das Nav-Item */
 .nav-item {
     display: inline-block;
     margin: 0 10px;
 }
 
-
 /* Breakpoint Mobile */
 @media screen and (max-width: 768px) {
+  body {
+    padding: 20px; /* Allgemeiner Abstand auch auf kleineren Geräten */
+  }
 
-.nav-container {
-  gap: 15px;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
-}
+  .about-content {
+    flex-direction: column; /* Stellt Bild und Text übereinander */
+    align-items: center;
+    gap: 20px; /* Weniger Abstand zwischen Bild und Text auf kleinen Bildschirmen */
+  }
 
-.nav-container.open {
-  padding-top: 50px; 
-}
+  .about-photo {
+    max-width: 70%; /* Bild bleibt kleiner auf kleinen Bildschirmen */
+  }
 
+  .about-text {
+    max-width: 100%; /* Text nimmt die volle Breite ein */
+    text-align: center;
+  }
 
-h1 {
+  h1 {
     font-size: 50px;
+  }
 }
-
-
-.about-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 80%; /* Maximale Breite des Bildes */
-}
-
-}
-
 
 /* Breakpoint Desktop */
 @media screen and (min-width: 768px) {

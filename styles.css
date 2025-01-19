@@ -653,7 +653,7 @@ background-color: rgb(80, 210, 197);
 @media screen and (max-width: 768px) {
   .welcome-txt { 
     /* width: 100%; */
-    color: yellow;
+    color: white;
     margin: 50px;
   }
 
