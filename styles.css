@@ -1,9 +1,11 @@
 @font-face {
   font-family: 'funFont';
   src: url(fonts/Funfont-Regular.ttf);
+}
+
+@font-face {
   font-family: 'Hermione';
   src: url(fonts/Hermione.ttf);
-
 }
 
 .homage-condensed {
@@ -50,7 +52,7 @@ h3 {
   font-size: 18px;
   flex-grow: 1; 
   text-align: center; 
-  padding-left: 100px;
+  padding-left: 65px;
 }
 
 .menu-icon {
@@ -134,7 +136,7 @@ h3 {
 }
 
 .word-container .letter[data-alt="true"].hovered {
-  font-family: 'funFont', cursive;
+  font-family: 'funFont', monospace;
   font-size: 1rem;
   transform: translateY(-10px);
 }
@@ -280,7 +282,6 @@ h3 {
 
 .Ronja {
   font-family: 'Hermione', serif;
-  padding-right: 40px;
   font-size: 150px;
   color:rgb(194, 205, 202);
   z-index: 1;
@@ -655,6 +656,22 @@ background-color: rgb(80, 210, 197);
     color: yellow;
     margin: 50px;
   }
+
+.work-section h2 {
+  font-size: 50px;
+}
+
+.nav-container {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.nav-container.open {
+  padding-top: 50px; 
+}
+
 }
 
 

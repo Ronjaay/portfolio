@@ -47,7 +47,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 40%; /* Maximale Breite des Bildes */
+  max-width: 80%; /* Maximale Breite des Bildes */
 }
 
 .about-photo img {
@@ -57,7 +57,7 @@ h1 {
 }
 
 .about-text {
-    max-width: 60%; /* Maximale Breite des Textes */
+    max-width: 80%; /* Maximale Breite des Textes */
     padding-right: 200px;
   flex: 1;
 }
@@ -99,6 +99,42 @@ h1 {
 .nav-item {
     display: inline-block;
     margin: 0 10px;
+}
+
+
+/* Breakpoint Mobile */
+@media screen and (max-width: 768px) {
+
+.nav-container {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30px;
+}
+
+.nav-container.open {
+  padding-top: 50px; 
+}
+
+
+h1 {
+    font-size: 50px;
+}
+
+
+.about-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%; /* Maximale Breite des Bildes */
+}
+
+}
+
+
+/* Breakpoint Desktop */
+@media screen and (min-width: 768px) {
+ 
 }
 </style>
 

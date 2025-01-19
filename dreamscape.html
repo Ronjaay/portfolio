@@ -110,11 +110,11 @@
 
     .gallery img {
       width: 100%; /* Damit das Bild die gesamte Breite des Containers einnimmt */
-      height: auto; /* Das Bild skaliert automatisch mit der Breite */
+      height: auto; /* Bild skaliert automatisch mit der Breite */
       cursor: pointer;
       border-radius: 8px;
       transition: transform 0.3s ease;
-      padding: 5px; /* Weniger Padding für bessere Bildgröße */
+      padding: 5px; 
     }
 
     .gallery img:hover {
@@ -216,25 +216,11 @@
     }
 
 
-    @media (max-width: 768px) {
-      .content-wrapper {
-        flex-direction: column;
-        gap: 20px; /* Weniger Abstand für kleinere Bildschirme */
-      }
-
-      .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Etwas kleinere Bilder für mittlere Bildschirmgrößen */
-      }
+    /*Projektfoto*/
+    .project-header {
+      width: 100%;
+      height: 40vh; /* 50% der Höhe des Viewports */
     }
-
-    @media (max-width: 480px) {
-      .gallery {
-        grid-template-columns: 1fr; /* 1 Spalte für sehr kleine Bildschirme */
-      }
-    }
-    
-
-
 
 
     /* Breakpoint Mobile */
@@ -250,6 +236,12 @@
   .project-info {
       font-size: 0.7em;
       
+    }
+
+    /*Projektfoto*/
+    .project-header {
+      width: 100%;
+      height: 40vh; /* 50% der Höhe des Viewports */
     }
 
 }
@@ -269,8 +261,6 @@
   <!-- Zurück Button -->
   <!-- Button auf dreamscape.html -->
 <button class="back-button" onclick="window.location.href='index.html#projects-section';">&#8592;</button>
-
-  
 
 
   <!-- Projektfoto -->

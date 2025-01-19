@@ -1,7 +1,21 @@
 // Funktion: Hover-Effekt für jedes einzelne Wort
-function onHoverIn(event) {
-  const letters = event.currentTarget.querySelectorAll('.letter'); // Nur die Buchstaben des gehovten Wortes
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function onHoverIn(event) {
+  const letters = event.currentTarget.querySelectorAll('.letter'); 
   letters.forEach((letter, index) => {
     if (letter.dataset.alt === "true") {
       letter.classList.add('hovered');
@@ -14,8 +28,13 @@ function onHoverIn(event) {
   });
 }
 
+
+
+
+
+
 function onHoverOut(event) {
-  const letters = event.currentTarget.querySelectorAll('.letter'); // Nur die Buchstaben des gehovten Wortes
+  const letters = event.currentTarget.querySelectorAll('.letter'); 
 
   letters.forEach((letter) => {
     letter.classList.remove('hovered');
